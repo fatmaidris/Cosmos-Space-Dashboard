@@ -1,8 +1,3 @@
-/**
- * COSMOS - Space Dashboard
- * Clean, Robust Vanilla JavaScript Implementation
- */
-
 // ============================================================================
 // Constants & Configuration
 // ============================================================================
