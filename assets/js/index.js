@@ -1,6 +1,3 @@
-// ============================================================================
-// Constants & Configuration
-// ============================================================================
 const CONFIG = {
   NASA_API_KEYS: [
     'DEMO_KEY',
@@ -15,7 +12,6 @@ const CONFIG = {
   REQUEST_TIMEOUT_MS: 8000
 };
 
-// Application State
 const state = {
   activeSection: 'today-in-space',
   cachedLaunches: null,
@@ -26,12 +22,8 @@ const state = {
   currentApod: null
 };
 
-// Expose state for automated inspection
 window.cosmosState = state;
 
-// ============================================================================
-// Local Planets Dataset (Comprehensive Fallback)
-// ============================================================================
 const PLANETS_DATA = [
   {
     id: 'mercury',
@@ -318,9 +310,6 @@ const PLANETS_DATA = [
 const planetsMap = new Map();
 PLANETS_DATA.forEach(p => planetsMap.set(p.id, p));
 
-// ============================================================================
-// Formatting Utilities
-// ============================================================================
 function formatNumber(num, maxDigits = 2) {
   if (num === null || num === undefined || isNaN(num)) return 'N/A';
   return new Intl.NumberFormat('en-US', {
@@ -399,9 +388,6 @@ async function fetchWithTimeout(url, options = {}, timeoutMs = CONFIG.REQUEST_TI
   }
 }
 
-// ============================================================================
-// Navigation & Mobile Sidebar Module
-// ============================================================================
 function initNavigation() {
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.app-section');
@@ -412,7 +398,7 @@ function initNavigation() {
       const targetSection = link.getAttribute('data-section');
       if (!targetSection) return;
 
-      // Update link styles
+      
       navLinks.forEach(item => {
         item.classList.remove('bg-blue-500/10', 'text-blue-400');
         item.classList.add('text-slate-300', 'hover:bg-slate-800');
@@ -420,7 +406,7 @@ function initNavigation() {
       link.classList.add('bg-blue-500/10', 'text-blue-400');
       link.classList.remove('text-slate-300', 'hover:bg-slate-800');
 
-      // Update sections
+      
       sections.forEach(section => {
         if (section.getAttribute('data-section') === targetSection || section.id === targetSection) {
           section.classList.remove('hidden');
@@ -431,7 +417,7 @@ function initNavigation() {
 
       state.activeSection = targetSection;
 
-      // Trigger lazy loads
+      
       if (targetSection === 'launches' && !state.cachedLaunches) {
         fetchUpcomingLaunches();
       } else if (targetSection === 'planets' && !state.cachedPlanets) {
@@ -477,9 +463,6 @@ function closeMobileSidebar() {
   removeSidebarOverlay();
 }
 
-// ============================================================================
-// NASA APOD (Astronomy Picture of the Day) Module
-// ============================================================================
 function initApodModule() {
   const dateInput = document.getElementById('apod-date-input');
   const dateLabel = document.getElementById('apod-date-label');
@@ -531,7 +514,7 @@ function initApodModule() {
     });
   }
 
-  // Load initial APOD
+  
   fetchApod('');
 }
 
@@ -560,7 +543,7 @@ async function fetchApod(customDate = '') {
   const dateInfoEl = document.getElementById('apod-date-info');
   const mediaTypeEl = document.getElementById('apod-media-type');
 
-  // Display loading indicator
+  
   if (loadingEl) loadingEl.classList.remove('hidden');
   if (apodImg) apodImg.classList.add('hidden');
   const existingVideo = document.getElementById('apod-video-frame');
@@ -585,7 +568,7 @@ async function fetchApod(customDate = '') {
     }
   }
 
-  // Graceful fallback: If requesting today returns 500/404 (common before daily publish), fetch yesterday
+  
   if (!data && !customDate) {
     const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
     try {
@@ -595,7 +578,7 @@ async function fetchApod(customDate = '') {
         data = await res.json();
       }
     } catch (e) {
-      // Fallback failed, handled below
+      
     }
   }
 
@@ -667,9 +650,6 @@ async function fetchApod(customDate = '') {
   }
 }
 
-// ============================================================================
-// Launches Module (The Space Devs Launch Library 2)
-// ============================================================================
 async function fetchUpcomingLaunches() {
   if (state.cachedLaunches) {
     renderLaunches(state.cachedLaunches);
@@ -981,9 +961,6 @@ function wireExistingStaticLaunches() {
   });
 }
 
-// ============================================================================
-// Planets Explorer Module
-// ============================================================================
 async function fetchPlanetsData() {
   try {
     const res = await fetchWithTimeout(CONFIG.PLANETS_URL, {}, 6000);
@@ -1026,12 +1003,12 @@ async function fetchPlanetsData() {
     console.warn('Planets API Notice (using embedded comprehensive dataset):', err.message);
   }
 
-  // Refresh current planet display
+  
   selectPlanet(state.selectedPlanetId);
 }
 
 function initPlanetsModule() {
-  // Wire up 8 planet cards in grid
+  
   const planetCards = document.querySelectorAll('#planets-grid .planet-card');
   planetCards.forEach(card => {
     const planetId = card.getAttribute('data-planet-id');
@@ -1042,7 +1019,7 @@ function initPlanetsModule() {
     });
   });
 
-  // Wire up Planet Favorite button
+  
   const favBtn = document.getElementById('planet-favorite-btn');
   if (favBtn) {
     favBtn.addEventListener('click', () => {
@@ -1057,7 +1034,7 @@ function initPlanetsModule() {
     });
   }
 
-  // Wire up comparison table rows so clicking a row selects that planet
+  
   const tableRows = document.querySelectorAll('#planet-comparison-tbody tr');
   tableRows.forEach(row => {
     const planetNameEl = row.querySelector('td:first-child span');
@@ -1070,7 +1047,7 @@ function initPlanetsModule() {
     }
   });
 
-  // Select initial planet Earth
+  
   selectPlanet('earth');
 }
 
@@ -1080,7 +1057,7 @@ function selectPlanet(planetId) {
 
   state.selectedPlanetId = planet.id;
 
-  // Highlight active card
+  
   const planetCards = document.querySelectorAll('#planets-grid .planet-card');
   planetCards.forEach(card => {
     const cardId = card.getAttribute('data-planet-id');
@@ -1093,7 +1070,7 @@ function selectPlanet(planetId) {
     }
   });
 
-  // Update Main Details
+  
   const imgEl = document.getElementById('planet-detail-image');
   const nameEl = document.getElementById('planet-detail-name');
   const descEl = document.getElementById('planet-detail-description');
@@ -1105,7 +1082,7 @@ function selectPlanet(planetId) {
   if (nameEl) nameEl.textContent = planet.englishName;
   if (descEl) descEl.textContent = planet.description;
 
-  // Update Favorite Button State
+  
   const favBtn = document.getElementById('planet-favorite-btn');
   if (favBtn) {
     const icon = favBtn.querySelector('i');
@@ -1118,7 +1095,7 @@ function selectPlanet(planetId) {
     }
   }
 
-  // Update Core Metrics
+  
   const distEl = document.getElementById('planet-distance');
   const radiusEl = document.getElementById('planet-radius');
   const massEl = document.getElementById('planet-mass');
@@ -1164,7 +1141,7 @@ function selectPlanet(planetId) {
     gravityEl.textContent = `${formatNumber(planet.gravity, 1)} m/s²`;
   }
 
-  // Update Discovery Info
+  
   const discByEl = document.getElementById('planet-discoverer');
   const discDateEl = document.getElementById('planet-discovery-date');
   const bodyTypeEl = document.getElementById('planet-body-type');
@@ -1181,7 +1158,7 @@ function selectPlanet(planetId) {
     }
   }
 
-  // Update Quick Facts
+  
   const factsList = document.getElementById('planet-facts');
   if (factsList && planet.facts && Array.isArray(planet.facts)) {
     factsList.innerHTML = planet.facts
@@ -1196,7 +1173,7 @@ function selectPlanet(planetId) {
       .join('');
   }
 
-  // Update Orbital Characteristics
+  
   const periEl = document.getElementById('planet-perihelion');
   const aphEl = document.getElementById('planet-aphelion');
   const eccEl = document.getElementById('planet-eccentricity');
@@ -1219,7 +1196,7 @@ function selectPlanet(planetId) {
     escapeEl.textContent = `${formatNumber(escapeKm, 1)} km/s`;
   }
 
-  // Highlight row in comparison table
+  
   const rows = document.querySelectorAll('#planet-comparison-tbody tr');
   rows.forEach(row => {
     const span = row.querySelector('td:first-child span');
@@ -1231,9 +1208,6 @@ function selectPlanet(planetId) {
   });
 }
 
-// ============================================================================
-// HTML Entity Escaping (Security Best Practice)
-// ============================================================================
 function escapeHtml(str) {
   if (typeof str !== 'string') return '';
   return str
@@ -1244,9 +1218,6 @@ function escapeHtml(str) {
     .replace(/'/g, '&#039;');
 }
 
-// ============================================================================
-// Application Bootstrap
-// ============================================================================
 function initApp() {
   initNavigation();
   initSidebarToggle();

@@ -212,8 +212,7 @@
                   ></i>
                   <p class="text-slate-400">Loading today's image...</p>
                 </div>
-                <!-- Using a placeholder image or one from assets if available. Using a reliable external placeholder for now or a relative path if we knew one. Sticking to a colored placeholder div if no image, but let's try a realistic placeholder or just the rocket icon style used elsewhere if we want to be safe. But user wants design. I'll use a relative path assuming assets exist or a generic space placeholder. -->
-                <img
+                                <img
                   id="apod-image"
                   class="w-full h-full object-cover"
                   src="./assets/images/placeholder.webp"
@@ -312,8 +311,7 @@
             </p>
           </div>
           <div id="featured-launch" class="mb-8">
-            <!-- STATIC FEATURED LAUNCH -->
-            <div
+                        <div
               class="relative bg-slate-800/30 border border-slate-700 rounded-3xl overflow-hidden group hover:border-blue-500/50 transition-all"
             >
               <div
@@ -428,8 +426,7 @@
                   <div
                     class="relative h-full min-h-[400px] rounded-2xl overflow-hidden bg-slate-900/50"
                   >
-                    <!-- Placeholder image/icon since we can't load external images reliably without correct URLs -->
-                    <div
+                                        <div
                       class="flex items-center justify-center h-full min-h-[400px] bg-slate-800"
                     >
                       <i class="fas fa-rocket text-9xl text-slate-700/50"></i>
@@ -449,8 +446,7 @@
             id="launches-grid"
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            <!-- STATIC LAUNCH CARD 1 -->
-            <div
+                        <div
               class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
             >
               <div
@@ -511,8 +507,7 @@
                 </div>
               </div>
             </div>
-            <!-- STATIC LAUNCH CARD 2 -->
-            <div
+                        <div
               class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
             >
               <div
@@ -575,8 +570,7 @@
                 </div>
               </div>
             </div>
-            <!-- STATIC LAUNCH CARD 3 -->
-            <div
+                        <div
               class="bg-slate-800/50 border border-slate-700 rounded-2xl overflow-hidden hover:border-blue-500/30 transition-all group cursor-pointer"
             >
               <div
@@ -662,8 +656,7 @@
             id="planets-grid"
             class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 xl:grid-cols-8 gap-3 md:gap-4 mb-8 md:mb-12"
           >
-            <!-- Mercury -->
-            <div
+                        <div
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="mercury"
               style="--planet-color: #eab308"
@@ -680,8 +673,7 @@
               <h4 class="font-semibold text-center text-sm">Mercury</h4>
               <p class="text-xs text-slate-400 text-center">0.39 AU</p>
             </div>
-            <!-- Venus -->
-            <div
+                        <div
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="venus"
               style="--planet-color: #f97316"
@@ -698,8 +690,7 @@
               <h4 class="font-semibold text-center text-sm">Venus</h4>
               <p class="text-xs text-slate-400 text-center">0.72 AU</p>
             </div>
-            <!-- Earth -->
-            <div
+                        <div
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="earth"
               style="--planet-color: #3b82f6"
@@ -716,8 +707,7 @@
               <h4 class="font-semibold text-center text-sm">Earth</h4>
               <p class="text-xs text-slate-400 text-center">1.00 AU</p>
             </div>
-            <!-- Mars -->
-            <div
+                        <div
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="mars"
               style="--planet-color: #ef4444"
@@ -734,8 +724,7 @@
               <h4 class="font-semibold text-center text-sm">Mars</h4>
               <p class="text-xs text-slate-400 text-center">1.52 AU</p>
             </div>
-            <!-- Jupiter -->
-            <div
+                        <div
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="jupiter"
               style="--planet-color: #fb923c"
@@ -752,8 +741,7 @@
               <h4 class="font-semibold text-center text-sm">Jupiter</h4>
               <p class="text-xs text-slate-400 text-center">5.20 AU</p>
             </div>
-            <!-- Saturn -->
-            <div
+                        <div
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="saturn"
               style="--planet-color: #facc15"
@@ -770,8 +758,7 @@
               <h4 class="font-semibold text-center text-sm">Saturn</h4>
               <p class="text-xs text-slate-400 text-center">9.58 AU</p>
             </div>
-            <!-- Uranus -->
-            <div
+                        <div
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="uranus"
               style="--planet-color: #06b6d4"
@@ -788,8 +775,7 @@
               <h4 class="font-semibold text-center text-sm">Uranus</h4>
               <p class="text-xs text-slate-400 text-center">19.22 AU</p>
             </div>
-            <!-- Neptune -->
-            <div
+                        <div
               class="planet-card bg-slate-800/50 border border-slate-700 rounded-2xl p-4 transition-all cursor-pointer group"
               data-planet-id="neptune"
               style="--planet-color: #2563eb"
@@ -1142,8 +1128,7 @@
                     id="planet-comparison-tbody"
                     class="divide-y divide-slate-700"
                   >
-                    <!-- Mercury -->
-                    <tr class="hover:bg-slate-800/30 transition-colors">
+                                        <tr class="hover:bg-slate-800/30 transition-colors">
                       <td
                         class="px-4 md:px-6 py-3 md:py-4 sticky left-0 bg-slate-800 z-10"
                       >
@@ -1190,8 +1175,7 @@
                         >
                       </td>
                     </tr>
-                    <!-- Venus -->
-                    <tr class="hover:bg-slate-800/30 transition-colors">
+                                        <tr class="hover:bg-slate-800/30 transition-colors">
                       <td
                         class="px-4 md:px-6 py-3 md:py-4 sticky left-0 bg-slate-800 z-10"
                       >
@@ -1238,8 +1222,7 @@
                         >
                       </td>
                     </tr>
-                    <!-- Earth -->
-                    <tr
+                                        <tr
                       class="hover:bg-slate-800/30 transition-colors bg-blue-500/5"
                     >
                       <td
@@ -1288,8 +1271,7 @@
                         >
                       </td>
                     </tr>
-                    <!-- Mars -->
-                    <tr class="hover:bg-slate-800/30 transition-colors">
+                                        <tr class="hover:bg-slate-800/30 transition-colors">
                       <td
                         class="px-4 md:px-6 py-3 md:py-4 sticky left-0 bg-slate-800 z-10"
                       >
@@ -1336,8 +1318,7 @@
                         >
                       </td>
                     </tr>
-                    <!-- Jupiter -->
-                    <tr class="hover:bg-slate-800/30 transition-colors">
+                                        <tr class="hover:bg-slate-800/30 transition-colors">
                       <td
                         class="px-4 md:px-6 py-3 md:py-4 sticky left-0 bg-slate-800 z-10"
                       >
@@ -1384,8 +1365,7 @@
                         >
                       </td>
                     </tr>
-                    <!-- Saturn -->
-                    <tr class="hover:bg-slate-800/30 transition-colors">
+                                        <tr class="hover:bg-slate-800/30 transition-colors">
                       <td
                         class="px-4 md:px-6 py-3 md:py-4 sticky left-0 bg-slate-800 z-10"
                       >
@@ -1432,8 +1412,7 @@
                         >
                       </td>
                     </tr>
-                    <!-- Uranus -->
-                    <tr class="hover:bg-slate-800/30 transition-colors">
+                                        <tr class="hover:bg-slate-800/30 transition-colors">
                       <td
                         class="px-4 md:px-6 py-3 md:py-4 sticky left-0 bg-slate-800 z-10"
                       >
@@ -1480,8 +1459,7 @@
                         >
                       </td>
                     </tr>
-                    <!-- Neptune -->
-                    <tr class="hover:bg-slate-800/30 transition-colors">
+                                        <tr class="hover:bg-slate-800/30 transition-colors">
                       <td
                         class="px-4 md:px-6 py-3 md:py-4 sticky left-0 bg-slate-800 z-10"
                       >
